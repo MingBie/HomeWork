@@ -1,5 +1,6 @@
 package day03;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -38,7 +39,9 @@ public class Emp {
     }
     // 重写toString
     public String toString() {
-        return "姓名:" + this.name + ",年龄:" + this.age + ",性别:" + this.gender + ",薪资:" + this.salary + ",入职时间:" + this.hiredate;
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        String d = sf.format(this.hiredate);
+        return "姓名:" + this.name + ",年龄:" + this.age + ",性别:" + this.gender + ",薪资:" + this.salary + ",入职时间:" + d;
     }
     // 重写equals 只要名字相同，则认为内容一致
     public boolean equals(Object obj) {

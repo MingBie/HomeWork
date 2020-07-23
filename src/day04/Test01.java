@@ -1,4 +1,10 @@
 package day04;
+
+import com.sun.security.jgss.GSSUtil;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * 创建一个集合c1，存放元素"one","two","three"
  * 再创建一个集合c2，存放元素"four","five","six"
@@ -10,7 +16,31 @@ package day04;
  *
  */
 public class Test01 {
-
+    public static void main(String[] args) {
+        // 集合c1
+        Collection<String> c1 = new ArrayList<>();
+        c1.add("one");
+        c1.add("two");
+        c1.add("three");
+        // 集合c2
+        Collection<String> c2 = new ArrayList<>();
+        c2.add("four");
+        c2.add("five");
+        c2.add("six");
+        // c2元素全部存入c1集合
+        c1.addAll(c2);
+        System.out.println(c1);
+        // 集合c3
+        Collection<String> c3 = new ArrayList<>();
+        c3.add("one");
+        c3.add("five");
+        // 判断集合c1是否包含集合c3的所有元素
+        boolean b = c1.containsAll(c3);
+        System.out.println(b);
+        // 删除集合c1中的元素two
+        c1.remove("two");
+        System.out.println(c1);
+    }
 }
 
 
