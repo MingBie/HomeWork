@@ -12,14 +12,17 @@ public class Test02 {
     public static void main(String[] args) {
         // 创建一个栈
         Stack<Integer> stack = new Stack<>();
-        stack.add(1);
-        stack.add(2);
-        stack.add(3);
-        stack.add(4);
-        stack.add(5);
-        // 可以用forEach遍历 Stack(类)继承Collection(接口)
-        for(Integer i : stack) {
-            System.out.println(i);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        // 栈长度
+        int size = stack.size();
+        for(int i = 0; i < size; i++) {
+            // 依次出栈
+            int j = stack.pop();
+            System.out.println(j);
         }
     }
 }
