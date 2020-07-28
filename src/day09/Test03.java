@@ -5,5 +5,26 @@ package day09;
  *
  */
 public class Test03 {
-
+    public static void main(String[] args) {
+        // 匿名内部类 创建 线程1
+        Thread mt1 = new Thread() {
+            @Override
+            public void run() {
+                for(int i = 0; i < 1000; i++) {
+                    System.out.println("你好");
+                }
+            }
+        };
+        // 线程2
+        Thread mt2 = new Thread() {
+            @Override
+            public void run() {
+                for(int i = 0; i < 1000; i++) {
+                    System.out.println("再见");
+                }
+            }
+        };
+        mt1.start();
+        mt2.start();
+    }
 }
