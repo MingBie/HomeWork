@@ -10,21 +10,25 @@ import java.util.Date;
  */
 public class Test04 {
     public static void main(String[] args) {
-        MyThread mt = new MyThread();
-        mt.start();
-    }
-}
-class MyThread extends Thread {
-    @Override
-    public void run() {
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date();
-        long time = date.getTime();
-        // 从当前时间连续输出10秒内的时间
-        for(int i = 0; i < (10 * 1000); i += 1000) {
-            date.setTime(time + i);
-            String stime = sf.format(date);
-            System.out.println(stime);
-        }
+        // 创建一个匿名内部线程
+        Thread t = new Thread() {
+            public void run() {
+                SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                while (true) {
+                    // 获得当前时间
+                    Date date = new Date();
+                    // Date -> String
+                    String s = sf.format(date);
+                    System.out.println(s);
+                    // 延迟1秒
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        t.start();
     }
 }
