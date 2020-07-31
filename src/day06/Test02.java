@@ -1,4 +1,9 @@
 package day06;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  * 要求用户输入一个文件名并使用File在当前目录下创建出来。
  * 若该文件已经存在，则提示用户该文件已经存在。并创建该文件副本：
@@ -8,5 +13,29 @@ package day06;
  *
  */
 public class Test02 {
-
+    public static void main(String[] args) throws IOException {
+        System.out.println("请输入一个文件名: ");
+        Scanner console = new Scanner(System.in);
+        String name = console.next();
+        // 创建文件对象
+        File file = new File("src/day06/" + name);
+        // 用来计数副本
+        int count = 0;
+        // 判断文件是否存在
+        if (file.isFile() == false) {
+            file.createNewFile();
+        } else {
+            // 如果文件存在，创建文件副本
+            while (true) {
+                // 获得需要创建的文件名字
+                String n = file.getName();
+                // 创建文件副本对象
+                File file1 = new File("src/day06/" + n + "_副本" + (++ count) + ".txt");
+                if (file1.isFile() == false) {
+                    file1.createNewFile();
+                    break;
+                }
+            }
+        }
+    }
 }
