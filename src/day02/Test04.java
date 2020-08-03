@@ -9,7 +9,7 @@ public class Test04 {
         String s = "123abc456def789ghi";
         // [a-z]+
         String regex = "[a-z]+";
-        String s1 = s.replaceAll(regex,"#char#");
-        System.out.println(s1);
+        s = s.replaceAll(regex,"#char#");
+        System.out.println(s);
     }
 }

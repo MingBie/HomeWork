@@ -16,27 +16,27 @@ import java.util.Scanner;
 public class Test08 {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        // 输入员工的人数
-        System.out.println("请输入员工的人数: ");
-        int count = console.nextInt();
-        // 用一个数组存储员工的信息
-        Person[] persons = new Person[count];
-        for(int i = 0; i < count; i++) {
-            // 输入每个员工的信息
-            System.out.println("请输入第" + (i + 1) + "个员工的信息");
-            System.out.print("请输入姓名: ");
-            String name = console.next();
-            System.out.print("请输入年龄: ");
-            int age = console.nextInt();
-            System.out.print("请输入性别: ");
-            String gender = console.next();
-            System.out.print("请输入工资: ");
-            int salary = console.nextInt();
+        // 输入员工的信息
+        System.out.println("请输入员工的信息: ");
+        String s = console.next();
+        // 用 ; 分割每个员工
+        String[] ss = s.split(";");
+        // 用一个数组存储员工
+        Person[] persons = new Person[ss.length];
+        for (int i = 0; i < ss.length; i++) {
+            // 用 , 分割员工信息
+            String[] s2 = ss[i].split(",");
+            // 获取每个员工信息
+            String name = s2[0];
+            int age = Integer.valueOf(s2[1]);
+            String gender = s2[2];
+            int salary = Integer.valueOf(s2[3]);
+            // 给数组每个员工元素存入员工信息
             persons[i] = new Person(name,age,gender,salary);
         }
-        // 遍历每个员工的信息
+        // 迭代员工数组
         for(int i = 0; i < persons.length; i++) {
-            System.out.println("第" + (i+1) + "个员工的信息是: " + persons[i].toString());
+            System.out.println(persons[i]);
         }
     }
 }

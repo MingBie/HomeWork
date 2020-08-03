@@ -28,26 +28,23 @@ public class Test07 {
         // 存入每个员工的信息
         for(int i = 0; i < count; i++) {
             System.out.println("请输入第" + (i+1) + "员工的信息");
-            System.out.print("请输入员工的姓名: ");
-            String name = console.next();
-            System.out.print("请输入员工的年龄: ");
-            int age = console.nextInt();
-            System.out.print("请输入员工的性别: ");
-            String gender = console.next();
-            System.out.print("请输入员工的工资: ");
-            int salary = console.nextInt();
-            System.out.print("请输入员工的入职时间(格式:yyyy-MM-dd): ");
-            String time = console.next();
-            Date date = sf.parse(time);
-            Emp emp = new Emp(name,age,gender,salary,date);
-            // 判断是否已经存在
+            String s = console.next();
+            // 用 , 分割 每个员工信息
+            String[] ss = s.split(",");
+            String name = ss[0];
+            int age = Integer.valueOf(ss[1]);
+            String gender = ss[2];
+            int salary = Integer.valueOf(ss[3]);
+            Date hiredate = sf.parse(ss[4]);
+            // 创建每个员工
+            Emp emp = new Emp(name,age,gender,salary,hiredate);
+            // 判断员工是否已经存在
             if (col.contains(emp)) {
                 System.out.println("该用户已存在");
             } else {
                 col.add(emp);
             }
         }
-        System.out.println();
         // 迭代输出
         Iterator<Emp> i = col.iterator();
         while (i.hasNext()) {

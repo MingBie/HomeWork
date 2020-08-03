@@ -22,7 +22,7 @@ public class Test05 {
 		Date date = new Date();
 		long time = date.getTime();
 		// 替换
-		String s1 = s.replaceAll(regex,time + ".");
-		System.out.println(s1);
+		s = s.replaceAll(regex,time + ".");
+		System.out.println(s);
 	}
 }
