@@ -22,33 +22,26 @@ import java.util.Scanner;
 public class Test10 {
     public static void main(String[] args) throws ParseException, IOException {
         Scanner console = new Scanner(System.in);
-        System.out.print("请输入员工的个数: ");
+        System.out.print("请输入员工的人数: ");
         int count = console.nextInt();
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        // 依次创建存储员工信息的文件
         for(int i = 0; i < count; i++) {
             System.out.println("请输入第" + (i+1) + "个员工的信息");
-            System.out.print("请输入员工的姓名: ");
-            String name = console.next();
-            System.out.print("请输入员工的年龄: ");
-            int age = console.nextInt();
-            System.out.print("请输入员工的性别: ");
-            String gender = console.next();
-            System.out.print("请输入员工的工资: ");
-            int salary = console.nextInt();
-            System.out.print("请输入员工的入职日期(格式:yyyy-MM-dd): ");
-            String hiredate = console.next();
-            Date date =sf.parse(hiredate);
+            String s = console.next();
+            // 用 , 分割每个员工的信息
+            String[] ss = s.split(",");
+            String name = ss[0];
+            int age = Integer.valueOf(ss[1]);
+            String gender = ss[2];
+            int salary = Integer.valueOf(ss[3]);
+            Date hiredate = sf.parse(ss[4]);
             // 创建员工对象
-            Emp emp = new Emp(name,age,gender,salary,date);
+            Emp emp = new Emp(name, age, gender, salary, hiredate);
             // 创建输出流以写入对象信息的文件
             OutputStream os = new FileOutputStream("src/day06/" + name + ".emp");
-            // String - > char[]
-            char[] cs = emp.toString().toCharArray();
-            byte[] bs = new byte[cs.length];
-            // char[] -> byte[]
-            for(int j = 0; j < cs.length; j++) {
-                bs[j] = (byte) cs[j];
-            }
+            // String - > byte[]
+            byte[] bs = emp.toString().getBytes();
             // 写入员工信息
             os.write(bs);
         }

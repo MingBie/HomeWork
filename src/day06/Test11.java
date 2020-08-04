@@ -1,9 +1,6 @@
 package day06;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,16 +11,12 @@ import java.util.List;
  * @author Bonnie
  *
  */
-/*public class Test11 {
+public class Test11 {
     public static void main(String[] args) throws IOException {
-        InputStream is = new FileInputStream("src/day06/emp.dat");
-        List<Emp> list = new ArrayList<>();
-        byte[] bs = new byte[];
-        int i;
-        int count = 0;
-        while ((i = is.read()) != -1) {
-            bs[count++] = (byte)i;
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/day06/emp.dat")));
+        String str;
+        while ((str = br.readLine()) != null) {
+            System.out.println(str);
         }
-        String emp1 = new String(bs);
     }
-}*/
+}
