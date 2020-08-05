@@ -14,8 +14,8 @@ public class Test08 {
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("src/day06/raf.dat")));
         PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("src/day06/raf.dat")));
         // 写入 int的最大值 long的最大值
-        pw.println("int最大值: 2147483647");
-        pw.println("long最大值: 9223372036854775807");
+        pw.println("int最大值: " + Integer.MAX_VALUE);
+        pw.println("long最大值: " + Long.MAX_VALUE);
         // 手动刷新缓冲区
         pw.flush();
         // 读取文件

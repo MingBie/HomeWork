@@ -1,4 +1,5 @@
 package day12;
+
 /**
  * 解析emplist.xml文档，将所有的员工以Emp对象
  * 存入到一个Map中，key为该员工id。
@@ -10,5 +11,4 @@ package day12;
  *
  */
 public class Test04 {
-
 }

@@ -12,7 +12,7 @@ public class Test05 {
         // 创建输入/输出字符流
         InputStreamReader bis = new InputStreamReader(new FileInputStream("src/day07/Test05.java"));
         OutputStreamWriter bos = new OutputStreamWriter(new FileOutputStream("src/day07/Test05_bak.txt"));
-        char[] chs = new char[1024];
+        char[] chs = new char[512];
         int len;
         // 进行复制
         while ((len = bis.read(chs)) != -1) {

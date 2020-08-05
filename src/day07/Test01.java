@@ -20,7 +20,7 @@ public class Test01 {
             int len;
             // 当复制完时 len=-1
             while ((len = is.read(bs)) != -1) {
-                // 字节数组可能未复制慢
+                // 字节数组可能未复制满
                 os.write(bs,0,len);
             }
         } catch (FileNotFoundException e) {
