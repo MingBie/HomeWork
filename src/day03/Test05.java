@@ -19,10 +19,10 @@ import java.util.Scanner;
 public class Test05 {
     public static void main(String[] args) throws ParseException {
         Scanner console = new Scanner(System.in);
-        // \d{18}
-        String regex = "^\\d{18}$";
+        // \d{17}[\dXx]
+        String regex = "^\\d{17}[\\dXx]$";
         // 判断是否输入正确
-        String s;
+        String s = "";
         while (true) {
             System.out.println("请输入身份证号: ");
             String s1 = console.next();
