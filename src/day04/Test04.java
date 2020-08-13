@@ -22,23 +22,20 @@ public class Test04 {
         // 获取子集[3,4,5,6]
         List<Integer> list1 = list.subList(3,7);
         System.out.println(list1);
-        //将子集元素扩大10倍 (对子集进行修改，也会改变父集的元素)
+        // 将子集元素扩大10倍 (对子集进行修改，也会改变父集的元素)
         List<Integer> list2 = new ArrayList<Integer>();
-        for(int i = 0; i < list1.size()*10; i++) {
-            list2.add(0);
+        for(int i = 0; i < list1.size(); i++) {
+            list1.set(i,list1.get(i)*10);
         }
-        list1.addAll(list2);
         System.out.println(list1);
-        // 输出原集合
-        list.removeAll(list2);
-        list.add(0,0);
+        // 输出原集合 (把扩大的元素复原)
+        for(int i = 3; i < 7; i++) {
+            list.set(i,list.get(i)/10);
+        }
         System.out.println(list);
-        List<Integer> list3 = new ArrayList<>();
-        list3.add(7);
-        list3.add(8);
-        list3.add(9);
         // 删除集合中的[7,8,9]
-        list.removeAll(list3);
+        List<Integer> list3 = list.subList(7, 10);
+        list3.clear();
         System.out.println(list);
     }
 }

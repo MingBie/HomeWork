@@ -1,7 +1,6 @@
 package Demo;
 
 import java.io.*;
-
 public class Demo {
     public static void main(String[] args) {
         BufferedReader br1 = null;

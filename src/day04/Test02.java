@@ -30,9 +30,11 @@ public class Test02 {
             if (s.equals("$")) {
                 // 删除
                 i.remove();
-            } else {
-                System.out.println(s);
             }
+        }
+        // 遍历输出 删除后 集合
+        for(String s : col) {
+            System.out.println(s);
         }
     }
 }
