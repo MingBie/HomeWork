@@ -26,8 +26,9 @@ public class Test07 {
 	 */
 	public static void copy1(String name) throws IOException {
 		// 创建字节流
-		FileInputStream fis = new FileInputStream("src/day06/" + name + ".txt");
-		FileOutputStream fos = new FileOutputStream("src/day06/" + name + "_copy.txt");
+		FileInputStream fis = new FileInputStream("src/day06/" + name);
+		String[] ss = name.split("\\.");
+		FileOutputStream fos = new FileOutputStream("src/day06/" + ss[0] + "_copy.txt");
 		// 单个字符形式复制
 		int a;
 		while ((a = fis.read()) != -1) {
@@ -43,8 +44,9 @@ public class Test07 {
 	 */
 	public static void copy2(String name) throws IOException {
 		// 创建字节流
-		FileInputStream fis = new FileInputStream("src/day06/" + name + ".txt");
-		FileOutputStream fos = new FileOutputStream("src/day06/" + name + "_copy.txt");
+		FileInputStream fis = new FileInputStream("src/day06/" + name);
+		String[] ss = name.split("\\.");
+		FileOutputStream fos = new FileOutputStream("src/day06/" + ss[0] + "_copy.txt");
 		// 字节数组形式复制
 		int len;
 		byte[] bs = new byte[1024];

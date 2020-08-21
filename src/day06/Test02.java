@@ -22,16 +22,16 @@ public class Test02 {
         // 用来计数副本
         int count = 0;
         // 判断文件是否存在
-        if (file.isFile() == false) {
+        if (file.exists() == false) {
             file.createNewFile();
         } else {
             // 如果文件存在，创建文件副本
             while (true) {
-                // 获得需要创建的文件名字
-                String n = file.getName();
+                // 获得需要创建的文件名字和文件类型
+                String[] ss = name.split("\\.");
                 // 创建文件副本对象
-                File file1 = new File("src/day06/" + n + "_副本" + (++ count) + ".txt");
-                if (file1.isFile() == false) {
+                File file1 = new File("src/day06/" + ss[0] + "_副本" + (++ count) + "." + ss[1]);
+                if (file1.exists() == false) {
                     file1.createNewFile();
                     break;
                 }

@@ -12,10 +12,15 @@ public class Test04 {
         // 当前目录的相对路径
         File file = new File("src/day06");
         // 列出所有文件和目录的名字
-        String[] ss = file.list();
+        File[] files = file.listFiles();
         // 迭代
-        for(String s : ss) {
-            System.out.println(s);
+        // 判断是文件还是目录
+        for(File f : files) {
+            if (f.isFile() == true) {
+                System.out.println(f);
+            } else if (f.isDirectory() == true) {
+                System.out.println(f.getName());
+            }
         }
     }
 }
