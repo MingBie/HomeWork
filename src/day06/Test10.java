@@ -44,6 +44,8 @@ public class Test10 {
             byte[] bs = emp.toString().getBytes();
             // 写入员工信息
             os.write(bs);
+            // 关闭流
+            os.close();
         }
     }
 }
