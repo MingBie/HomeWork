@@ -16,7 +16,7 @@ public class Test03 {
             }
         };
         // 线程2
-        Thread mt2 = new Thread() {
+        Runnable r = new Runnable() {
             @Override
             public void run() {
                 for(int i = 0; i < 1000; i++) {
@@ -24,6 +24,7 @@ public class Test03 {
                 }
             }
         };
+        Thread mt2 = new Thread(r);
         mt1.start();
         mt2.start();
     }
